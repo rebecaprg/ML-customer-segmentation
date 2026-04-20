@@ -95,11 +95,17 @@ jupyter notebook
 ```
 customer-segmentation/
 │
-├── customer-segmentation-clustering.ipynb 
+├── main.py
+├── pipeline.py
 ├── README.md                            
 │
 └── data/
     ├── Mall_Customers.csv
+└── models/
+    ├── dbscan.pkl
+    ├── kmeans.pkl
+└── notebooks/
+    ├── customer-segmentation-clustering.ipynb
 ```
 
 ### Autora
@@ -213,11 +219,17 @@ jupyter notebook
 ```
 customer-segmentation/
 │
-├── customer-segmentation-clustering.ipynb 
+├── main.py
+├── pipeline.py
 ├── README.md                            
 │
 └── data/
     ├── Mall_Customers.csv
+└── models/
+    ├── dbscan.pkl
+    ├── kmeans.pkl
+└── notebooks/
+    ├── customer-segmentation-clustering.ipynb
 ```
 
 ### Authora
