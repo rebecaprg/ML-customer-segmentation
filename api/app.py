@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 import numpy as np
+import pandas as pd
 from pathlib import Path
 import joblib
 
@@ -19,7 +20,11 @@ class Customer(BaseModel):
 
 
 def preprocess(data: Customer):
-    return np.array([[data.age, data.income, data.spending_score]])
+    return pd.DataFrame([{
+        "Age": data.age,
+        "Annual Income (k$)": data.income,
+        "Spending Score (1-100)": data.spending_score
+    }])
 
 
 @app.get("/")
@@ -31,10 +36,6 @@ def home():
 
 @app.post("/predict")
 def predict(customer: Customer):
-
     X = preprocess(customer)
-
-    return {
-        "debug_X": X.tolist(),
-        "model_type": str(type(kmeans_pipeline))
-    }
+    cluster = int(kmeans_pipeline.predict(X)[0])
+    return {"cluster": cluster}
