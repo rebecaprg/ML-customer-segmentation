@@ -115,7 +115,7 @@ Se ha desarrollado una API REST utilizando **FastAPI** para servir el modelo de 
 La API está desplegada en Render y permite realizar predicciones en tiempo real para la segmentación de clientes.
 
 ### 🌐 URL base
-URL API: [https://ml-customer-segmentation-1.onrender.com]
+URL API: [API-Customer-segmentation](https://ml-customer-segmentation-1.onrender.com)
 
 
 #### Endpoint principal
@@ -274,7 +274,7 @@ A REST API has been developed using **FastAPI** to serve the K-Means clustering 
 The API is deployed on Render and enables real-time predictions for customer segmentation.
 
 ### 🌐 Base URL
-API URL: [https://ml-customer-segmentation-1.onrender.com]
+API URL: [API-Customer-segmentation](https://ml-customer-segmentation-1.onrender.com)
 
 ---
 
