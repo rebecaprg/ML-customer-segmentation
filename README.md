@@ -108,6 +108,42 @@ customer-segmentation/
     ├── customer-segmentation-clustering.ipynb
 ```
 
+## 🚀 Despliegue de la API 
+
+Se ha desarrollado una API REST utilizando **FastAPI** para servir el modelo de clustering K-Means en producción.
+
+La API está desplegada en Render y permite realizar predicciones en tiempo real para la segmentación de clientes.
+
+### 🌐 URL base
+URL API: [https://ml-customer-segmentation-1.onrender.com]
+
+
+#### Endpoint principal
+
+**Predicción de cliente**
+```
+
+POST /predict
+
+```
+
+**Ejemplo de entrada:**
+
+```json id="in1"
+{
+  "age": 30,
+  "income": 70,
+  "spending_score": 40
+}
+```
+
+**Salida:**
+
+```json id="out1"
+{
+  "cluster": 2
+}
+```
 ### Autora
 | Rebeca Prior | [@rebecaprg](https://github.com/rebecaprg) |
 
@@ -231,7 +267,39 @@ customer-segmentation/
 └── notebooks/
     ├── customer-segmentation-clustering.ipynb
 ```
+### 🚀 API Deployment
 
+A REST API has been developed using **FastAPI** to serve the K-Means clustering model in production.
+
+The API is deployed on Render and enables real-time predictions for customer segmentation.
+
+### 🌐 Base URL
+API URL: [https://ml-customer-segmentation-1.onrender.com]
+
+---
+
+#### Main endpoint
+
+**Customer prediction**
+
+POST /predict
+
+
+**Input example:**
+
+```json
+{
+  "age": 30,
+  "income": 70,
+  "spending_score": 40
+}
+```
+Output:
+```
+{
+  "cluster": 2
+}
+```
 ### Authora
 
 | Rebeca Prior | [@rebecaprg](https://github.com/rebecaprg) |
