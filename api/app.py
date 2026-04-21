@@ -35,5 +35,6 @@ def predict(customer: Customer):
     X = preprocess(customer)
 
     return {
-        "input_received": X.tolist()
+        "debug_X": X.tolist(),
+        "model_type": str(type(kmeans_pipeline))
     }
