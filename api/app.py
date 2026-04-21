@@ -5,8 +5,7 @@ import numpy as np
 import os
 
 # Cargar el modelo
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, "models/kmeans.pkl")
+kmeans_pipeline = joblib.load("models/kmeans.pkl")
 
 kmeans_pipeline = joblib.load(MODEL_PATH)
 
