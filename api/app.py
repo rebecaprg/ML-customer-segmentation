@@ -26,13 +26,14 @@ def preprocess(data: Customer):
 def home():
     return {"message": "API running 🚀"}
 
-@app.get("/debug-model")
-def debug_model():
-    return {"model_type": str(type(kmeans_pipeline))}
+
 
 
 @app.post("/predict")
 def predict(customer: Customer):
+
     X = preprocess(customer)
-    cluster = int(kmeans_pipeline.predict(X)[0])
-    return {"cluster": cluster}
+
+    return {
+        "input_received": X.tolist()
+    }
