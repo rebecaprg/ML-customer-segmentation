@@ -106,19 +106,27 @@ customer-segmentation/
     ├── kmeans.pkl
 └── notebooks/
     ├── customer-segmentation-clustering.ipynb
+└── api/
+    ├── app.py
+    ├── utils.py
 ```
 
 ## 🚀 Despliegue de la API 
 
 Se ha desarrollado una API REST utilizando **FastAPI** para servir el modelo de clustering K-Means en producción.
 
-La API está desplegada en Render y permite realizar predicciones en tiempo real para la segmentación de clientes.
+La API está desplegada en Render y, además de permitir realizar predicciones en tiempo real, no solo devuelve el cluster asignado, sino que traduce automáticamente cada segmento en información interpretable para negocio, incluyendo perfil del cliente y estrategias recomendadas. 
+
 
 ### 🌐 URL base
 URL API: [API-Customer-segmentation](https://ml-customer-segmentation-1.onrender.com)
 
 
 #### Endpoint principal
+
+**Ejemplo en producción**
+
+Puedes probar la API directamente desde herramientas como Postman o curl enviando peticiones al endpoint `/predict`:
 
 **Predicción de cliente**
 ```
@@ -141,9 +149,33 @@ POST /predict
 
 ```json id="out1"
 {
-  "cluster": 2
+  "cluster": 2,
+  "info": {
+    "segmento": "Jóvenes con alto gasto",
+    "perfil": {
+      "edad": "20-30",
+      "ingresos": "Bajos-Medios",
+      "gasto": "Alto"
+    },
+    "estrategias": [
+      "Campañas en redes sociales",
+      "Productos de tendencia",
+      "Marketing con influencers"
+    ]
+  }
 }
 ```
+
+### Valor del proyecto
+
+Este proyecto demuestra la capacidad de llevar un modelo de Machine Learning desde la fase de análisis hasta producción, incluyendo:
+
+* Desarrollo de pipelines reproducibles
+* Entrenamiento y validación de modelos no supervisados
+* Serialización del modelo
+* Despliegue mediante API REST en la nube
+* Traducción de resultados técnicos a decisiones de negocio
+
 ### Autora
 | Rebeca Prior | [@rebecaprg](https://github.com/rebecaprg) |
 
@@ -266,12 +298,15 @@ customer-segmentation/
     ├── kmeans.pkl
 └── notebooks/
     ├── customer-segmentation-clustering.ipynb
+└── api/
+    ├── app.py
+    ├── utils.py
 ```
 ### 🚀 API Deployment
 
 A REST API has been developed using **FastAPI** to serve the K-Means clustering model in production.
 
-The API is deployed on Render and enables real-time predictions for customer segmentation.
+The API is deployed on Render and enables real-time predictions for customer segmentation. In addition to returning the assigned cluster, the API translates each segment into interpretable business insights, including customer profiles and actionable marketing strategies.
 
 ### 🌐 Base URL
 API URL: [API-Customer-segmentation](https://ml-customer-segmentation-1.onrender.com)
@@ -279,6 +314,9 @@ API URL: [API-Customer-segmentation](https://ml-customer-segmentation-1.onrender
 ---
 
 #### Main endpoint
+**Live API Example**
+
+You can test the deployed API using tools like Postman or curl by sending requests to the `/predict` endpoint:
 
 **Customer prediction**
 
@@ -297,9 +335,34 @@ POST /predict
 Output:
 ```
 {
-  "cluster": 2
+  "cluster": 2,
+  "info": {
+    "segment": "Young high-spending customers",
+    "profile": {
+      "age": "20-30",
+      "income": "Low-Medium",
+      "spending": "High"
+    },
+    "strategies": [
+      "Social media campaigns",
+      "Trending products",
+      "Influencer marketing"
+    ]
+  }
 }
 ```
+
+### Project Value
+
+This project demonstrates the ability to take a Machine Learning model from exploration to production, including:
+
+* Building reproducible ML pipelines
+* Training and evaluating unsupervised learning models
+* Serializing and managing trained models
+* Deploying a REST API in the cloud (Render)
+* Translating technical outputs into actionable business insights
+
+
 ### Authora
 
 | Rebeca Prior | [@rebecaprg](https://github.com/rebecaprg) |
