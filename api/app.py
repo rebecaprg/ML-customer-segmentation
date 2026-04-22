@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 import joblib
+from .utils import interpret_cluster
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 MODEL_PATH = BASE_DIR / "models" / "kmeans.pkl"
@@ -27,6 +28,7 @@ def preprocess(data: Customer):
     }])
 
 
+
 @app.get("/")
 def home():
     return {"message": "API running 🚀"}
@@ -36,6 +38,13 @@ def home():
 
 @app.post("/predict")
 def predict(customer: Customer):
+
     X = preprocess(customer)
     cluster = int(kmeans_pipeline.predict(X)[0])
-    return {"cluster": cluster}
+
+    info = interpret_cluster(cluster)
+    return {
+    "cluster": cluster,
+    "info": info
+    }
+
