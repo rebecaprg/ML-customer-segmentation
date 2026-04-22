@@ -147,7 +147,8 @@ POST /predict
 
 **Salida:**
 
-```json id="out1"
+```
+json id="out1"
 {
   "cluster": 2,
   "info": {
@@ -325,7 +326,7 @@ POST /predict
 
 **Input example:**
 
-```json
+```json "
 {
   "age": 30,
   "income": 70,
@@ -334,19 +335,20 @@ POST /predict
 ```
 Output:
 ```
+json id="out1"
 {
   "cluster": 2,
   "info": {
-    "segment": "Young high-spending customers",
-    "profile": {
-      "age": "20-30",
-      "income": "Low-Medium",
-      "spending": "High"
+    "segmento": "Jóvenes con alto gasto",
+    "perfil": {
+      "edad": "20-30",
+      "ingresos": "Bajos-Medios",
+      "gasto": "Alto"
     },
-    "strategies": [
-      "Social media campaigns",
-      "Trending products",
-      "Influencer marketing"
+    "estrategias": [
+      "Campañas en redes sociales",
+      "Productos de tendencia",
+      "Marketing con influencers"
     ]
   }
 }
